@@ -1,0 +1,17 @@
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL || 'postgresql://localhost:5432/groww_watchlist',
+});
+
+// Simple wrapper for queries
+export const query = (text: string, params?: any[]) => {
+  return pool.query(text, params);
+};
+
+export const getClient = () => {
+  return pool.connect();
+};
