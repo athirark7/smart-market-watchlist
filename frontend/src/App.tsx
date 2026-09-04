@@ -205,7 +205,7 @@ function App() {
                     ({item.analysis.percentageChange > 0 ? '+' : ''}{item.analysis.percentageChange.toFixed(2)}%)
                   </td>
                   <td>
-                    {item.analysis.severity === 'NONE' || item.analysis.severity === 'NEW' ? 
+                    {item.analysis.severity === 'NONE' ? 
                       <span className="text-muted">{item.analysis.message}</span> : 
                       <strong style={{ color: getSeverityColor(item.analysis.severity) }}>{item.analysis.message}</strong>
                     }
