@@ -39,7 +39,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [lastRefreshed, setLastRefreshed] = useState<Date | null>(null);
 
-  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://smart-market-watchlist.onrender.com';
 
   const fetchWatchlist = async () => {
     setLoading(true);
