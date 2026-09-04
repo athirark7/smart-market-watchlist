@@ -15,3 +15,16 @@ export const query = (text: string, params?: any[]) => {
 export const getClient = () => {
   return pool.connect();
 };
+
+export const initDb = async () => {
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    const schemaPath = path.join(__dirname, '../../db/schema.sql');
+    const schema = fs.readFileSync(schemaPath, 'utf-8');
+    await pool.query(schema);
+    console.log('Database initialized successfully.');
+  } catch (err) {
+    console.error('Failed to initialize database:', err);
+  }
+};
